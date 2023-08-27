@@ -13,5 +13,5 @@ class RedAlert(Action):
                    "price": "0.1",
                    "strategy": "alert"}
         url = "https://10.8.0.1/6DGFeiL8qVUk3AjDO6h3hRSL"
-        requests.post(url, json=payload, timeout=1)
+        requests.post(url, json=payload, timeout=10, verify=False)
         print(f"Done sounding alert for {down_device}")
