@@ -24,5 +24,7 @@ criteria:
     pattern: HARD
     type: eq
 action:
-  ref: super_cool_python.hello_st2
-  description: say hello!
+  ref: super_cool_python.network_recovery
+  description: try to auto remediate network down device
+  parameters:
+    down_device: "{{ trigger.host }}"
