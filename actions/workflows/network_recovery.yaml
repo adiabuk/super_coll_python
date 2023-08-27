@@ -1,0 +1,29 @@
+version: 1.0
+description: remediate down devices
+
+input:
+  - down_device
+
+tasks:
+  check_device:
+    action: core.echo message="device down --> <% ctx(down_device) %>"
+    next:
+      - when: <% failed() %>
+        do: failure
+        publish:
+          - stdout: <% result().stdout %>
+          - stderr: <% result().stderr %>
+      - when: <% succeeded() %>
+        do: success
+        publish:
+          - stdout: <% result().stdout %>
+          - stderr: <% result().stderr %>
+  success:
+    action: core.echo message="yay, great success!"
+
+  failure:
+    action: core.echo message="uhoh something failed"
+
+output:
+  - stdout: <% ctx(stdout) %>
+  - stderr: <% ctx(stderr) %>
