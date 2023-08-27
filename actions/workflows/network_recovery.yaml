@@ -5,6 +5,20 @@ input:
   - down_device
 
 tasks:
+  red_alert:
+    action: super_cool_python.red_alert down_device=<% ctx(down_device) %>
+  next:
+      - when: <% failed() %>
+        do: check_device
+        publish:
+          - stdout: <% result().stdout %>
+          - stderr: <% result().stderr %>
+      - when: <% succeeded() %>
+        do: check_device
+        publish:
+          - stdout: <% result().stdout %>
+          - stderr: <% result().stderr %>
+
   check_device:
     action: super_cool_python.network_device_check down_device=<% ctx(down_device) %>
     next:
