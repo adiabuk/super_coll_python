@@ -4,7 +4,7 @@ name : super_cool_python
 description : A super cool python pack
 keywords:
   - python3
-version: 0.0.7
+version: 0.0.8
 python_versions:
   - "3"
 author : carl
