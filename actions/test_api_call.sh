@@ -1,0 +1,1 @@
+curl -X POST -H 'Content-Type: application/json'  --data '{"pair": "", "text": "Test alert from stackstorm", "action": "open", "price": "0.1", "strategy": "alert"}' https://10.8.0.1/6DGFeiL8qVUk3AjDO6h3hRSL --insecure
