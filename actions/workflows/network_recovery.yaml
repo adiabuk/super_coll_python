@@ -3,10 +3,12 @@ description: remediate down devices
 
 input:
   - down_device
+  - down_service
 
 tasks:
   red_alert:
-    action: super_cool_python.red_alert down_device=<% ctx(down_device) %>
+    action: super_cool_python.red_alert down_device=<% ctx(down_device) %> down_service=<% ctx(down_service) %>
+
     next:
       - when: <% failed() %>
         do: check_device

@@ -11,3 +11,8 @@ parameters:
     description: hostname of network device to check
     required: True
     position: 0
+  down_service:
+    type: string
+    description: hostname of network device to check
+    required: True
+    position: 1

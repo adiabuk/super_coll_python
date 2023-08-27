@@ -5,10 +5,10 @@ import requests
 __all__ = ["RedAlert"]
 
 class RedAlert(Action):
-    def run(self, down_device):
+    def run(self, down_device, down_service):
         print(f"Starting alert for {down_device}")
         payload = {"pair": "",
-                   "text": f"Test alert from {down_device} stackstorm",
+                   "text": f"{down_service} alert from {down_device} stackstorm",
                    "action": "open",
                    "price": "0.1",
                    "strategy": "alert"}
