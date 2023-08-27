@@ -7,7 +7,7 @@ input:
 tasks:
   red_alert:
     action: super_cool_python.red_alert down_device=<% ctx(down_device) %>
-  next:
+    next:
       - when: <% failed() %>
         do: check_device
         publish:
